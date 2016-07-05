@@ -1,0 +1,6 @@
+{
+    "microbit-dal":{
+        "system_tick_period": 3,
+        "sram_end":"0x20004000"
+    }
+}
