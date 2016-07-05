@@ -1,0 +1,14 @@
+{
+  "name": "nrf51dk-samples",
+  "version": "0.0.0",
+  "bin": "./source",
+  "private": true,
+  "description": "Simple example of using microbit-dal with nrf51dk development board",
+  "author": "joe@comp.lancs.ac.uk",
+  "license": "MIT",
+  "dependencies": {
+    "nrf51dk-microbit": "finneyj/nrf51dk-microbit"
+  },
+  "targetDependencies": {},
+  "bin": "./source"
+}
