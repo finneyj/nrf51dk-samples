@@ -26,10 +26,34 @@ DEALINGS IN THE SOFTWARE.
 
 MicroBit uBit;
 
+void onButtonA(MicroBitEvent)
+{
+    uBit.display.scroll("HELLO");
+}
+
+void onButtonB(MicroBitEvent)
+{
+    uBit.display.scroll("DARYL");
+}
+
 int main()
 {
     uBit.init();
 
-    uBit.display.scroll("hello");
+    MicroBitImage smiley("0,0,0,0,0\n0,255,0,255,0\n0,0,0,0,0\n255,0,0,0,255\n,0,255,255,255,0\n");
+    uBit.display.print(smiley);
+
+    uBit.messageBus.listen(MICROBIT_ID_BUTTON_A, MICROBIT_BUTTON_EVT_CLICK, onButtonA);
+    uBit.messageBus.listen(MICROBIT_ID_BUTTON_B, MICROBIT_BUTTON_EVT_CLICK, onButtonB);
+
+    // We're done. Release this fiber back to the scheduler.
+    // This is a special case for main - exiting main() has different semantics than any other funciton in C!
+    // Alternatively, you could do this:
+    //
+    // while(1)
+    //     uBit,sleep(100);
+    //
+    // But releasing the fiber is more memory efficient...
+    release_fiber();
 }
 
