@@ -33,7 +33,8 @@ void onButtonA(MicroBitEvent)
 
 void onButtonB(MicroBitEvent)
 {
-    uBit.display.scroll("DARYL");
+    auto str = "DARYL";
+    uBit.display.scroll(str);
 }
 
 int main()
